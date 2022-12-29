@@ -1,7 +1,7 @@
 resource "aws_vpc" "main" {
   cidr_block = var.cidr
   tags = {
-    Name = "vpc-tf-teste"
+    Name = var.vpc_name
   }
 }
 
