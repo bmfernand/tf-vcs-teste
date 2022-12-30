@@ -1,24 +1,29 @@
-resource "aws_vpc" "main" {
-  cidr_block = var.cidr
-  tags = {
-    Name = var.vpc_name
+rvariable "region" {
+  type    = string
+  default = "us-west-2"
+}
+
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0.0"
+    }
   }
 }
 
-resource "aws_subnet" "public_subnet" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = var.public_subnet
-
-  tags = {
-    Name = "Public-Subnet"
-  }
+provider "aws" {
+  region = var.region
+  access_key = {}
+  secret_key = {}
 }
 
-resource "aws_subnet" "private_subnet" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = var.private_subnet
-
-  tags = {
-    Name = "Private-Subnet"
-  }
+module "vpc" {
+  source  = "bmfernand/vpc-test/aws"
+  version = "1.0.2"
+  # insert required variables here
+  cidr = "10.100.0.0/16"
+  public_subnet = "10.100.0.0/24"
+  private_subnet = "10.100.1.0/24"
+  vpc_name = "vpc-bf-teste"
 }
