@@ -1,4 +1,7 @@
 // merda001
+variable "region" {
+  type    = string
+}
 
 terraform {
   required_providers {
@@ -19,8 +22,8 @@ module "vpc" {
   source  = "bmfernand/vpc-test/aws"
   version = "1.0.2"
   # insert required variables here
-  cidr = var.cidr
-  public_subnet = var.public_subnet
-  private_subnet = var.private_subnet
-  vpc_name = var.vpc_name
+  cidr = "10.100.0.0/16"
+  public_subnet = "10.100.0.0/24"
+  private_subnet = "10.100.1.0/24"
+  vpc_name = "vpc-bf-teste"
 }
