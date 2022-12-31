@@ -22,8 +22,8 @@ module "vpc" {
   source  = "bmfernand/vpc-test/aws"
   version = "1.0.2"
   # insert required variables here
-  cidr = "10.103.0.0/16"
-  public_subnet = "10.103.0.0/24"
-  private_subnet = "10.103.1.0/24"
+  cidr = "10.100.0.0/16"
+  public_subnet = "10.100.0.0/24"
+  private_subnet = "10.100.1.0/24"
   vpc_name = "vpc-bf-teste"
 }
