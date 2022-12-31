@@ -24,6 +24,6 @@ module "vpc" {
   # insert required variables here
   cidr = "10.102.0.0/16"
   public_subnet = "10.102.0.0/24"
-  private_subnet = "10.101.2.0/24"
+  private_subnet = "10.102.2.0/24"
   vpc_name = "vpc-bf-teste102"
 }
