@@ -1,8 +1,3 @@
-rvariable "region" {
-  type    = string
-  default = "us-west-2"
-}
-
 terraform {
   required_providers {
     aws = {
@@ -14,8 +9,8 @@ terraform {
 
 provider "aws" {
   region = var.region
-  access_key = {}
-  secret_key = {}
+  access_key = var.access_key
+  secret_key = var.secret_key
 }
 
 module "vpc" {
