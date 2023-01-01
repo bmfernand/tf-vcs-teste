@@ -23,7 +23,7 @@ module "vpc" {
   version = "1.0.2"
   # insert required variables here
   cidr = "10.100.0.0/16"
-  public_subnet = "10.100.0.0/24"
+  public_subnet = "10.100.1.0/24"
   private_subnet = "10.100.2.0/24"
   vpc_name = "vpc-bf-teste101"
 }
